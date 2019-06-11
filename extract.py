@@ -23,7 +23,7 @@ for t in peaks_times:
     else:
         final_times.append(t)
 
-final = concatenate([clip.subclip(max(t-5,0),min(t+5, clip.duration))
+final = concatenate([clip.subclip(max(t-20,0),min(t+20, clip.duration))
                      for t in final_times])
 final.to_videofile(sys.argv[2])
 
