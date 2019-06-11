@@ -13,7 +13,7 @@ increases = np.diff(averaged_volumes)[:-1]>=0
 decreases = np.diff(averaged_volumes)[1:]<=0
 peaks_times = (increases * decreases).nonzero()[0]
 peaks_vols = averaged_volumes[peaks_times]
-peaks_times = peaks_times[peaks_vols>np.percentile(peaks_vols,90)]
+peaks_times = peaks_times[peaks_vols>np.percentile(peaks_vols,95)]
 
 final_times=[peaks_times[0]]
 for t in peaks_times:
@@ -23,7 +23,7 @@ for t in peaks_times:
     else:
         final_times.append(t)
 
-final = concatenate([clip.subclip(max(t-20,0),min(t+20, clip.duration))
+final = concatenate([clip.subclip(max(t-5,0),min(t+25, clip.duration))
                      for t in final_times])
 final.to_videofile(sys.argv[2])
 
