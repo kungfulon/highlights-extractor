@@ -1,5 +1,4 @@
 # highlights-extractor
-
 Demo:
 
 - Original match: https://www.youtube.com/watch?v=jW5jobEpkk4
